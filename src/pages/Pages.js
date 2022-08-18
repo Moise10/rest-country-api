@@ -10,7 +10,7 @@ function Pages() {
 		<Routes>
 			<Route path="/" element={<Home />} />
 			<Route path="/country" element={<Country />} />
-			<Route path="/search/:search" element={<Searched />} />
+			<Route path="/searched/:search" element={<Searched />} />
 			<Route path="/region/:region_name" element={<Region />}/>
 		</Routes>
 	);

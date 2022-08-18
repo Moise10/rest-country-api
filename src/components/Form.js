@@ -2,12 +2,11 @@ import React, {useState} from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import {useNavigate} from 'react-router-dom'
 import styled from 'styled-components'
-import { exactProp } from '@mui/utils';
 
 
 function Form() {
   const navigate = useNavigate()
-  const [input, setInput] = useState()
+  const [input, setInput] = useState('')
 
   const handleForm = (e) => {
     e.preventDefault()
@@ -16,11 +15,14 @@ function Form() {
   }
 
   return (
-		<FormStyle>
-			<div action="" onSubmit={handleForm}>
+		<FormStyle onSubmit={handleForm}>
+			<div>
 				<SearchIcon />
-				<input type="text" onChange={(e) => setInput(e.target.value)} />
-				
+				<input
+					type="text"
+					value={input}
+					onChange={(e) => setInput(e.target.value)}
+				/>
 			</div>
 		</FormStyle>
 	);
