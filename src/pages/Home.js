@@ -7,7 +7,6 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 function Home() {
   return (
 		<div>
-			
 			<Countries />
 		</div>
 	);

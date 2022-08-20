@@ -12,6 +12,7 @@ function Form() {
     e.preventDefault()
     navigate("/searched/" + input)
     console.log(e)
+		setInput('')
   }
 
   return (
@@ -31,19 +32,19 @@ function Form() {
 const FormStyle = styled.form`
 	div {
 		position: relative;
-    width: 100%;
+		width: 100%;
 	}
 
 	input {
 		border: none;
-		background: linear-gradient(35deg, #494949, #313131);
+		background: hsl(209, 23%, 22%);
 		font-size: 1.5rem;
 		color: white;
-		padding: 1rem 5rem;
+		padding: 1rem 4rem;
 		border: none;
-		border-radius: 1rem;
 		outline: none;
 		width: 100%;
+		cursor: pointer;
 	}
 
 	svg {

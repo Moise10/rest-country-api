@@ -23,13 +23,15 @@ function Region() {
       {continents.map(country => {
         return (
 					<Card>
-						<img src={country.flags.png} alt="" />
-						<div className="">
-							<h1>{country.name.common}</h1>
-							<p>Population: {country.population}</p>
-							<p>Region: {country.region}</p>
-							<p>Capital: {country.capital}</p>
-						</div>
+						<$Link to={'country/' + country.name.common}>
+							<img src={country.flags.png} alt="" />
+							<div className="">
+								<h1>{country.name.common}</h1>
+								<p>Population: {country.population}</p>
+								<p>Region: {country.region}</p>
+								<p>Capital: {country.capital}</p>
+							</div>
+						</$Link>
 					</Card>
 				);
       })}
@@ -45,7 +47,7 @@ const Grid = styled.div`
 `;
 
 const Card = styled.div`
-	background-color: hsl(207, 26%, 17%);
+	background-color: hsl(209, 23%, 22%);
 
 	img {
 		width: 100%;
@@ -68,6 +70,10 @@ const Card = styled.div`
 			margin-bottom: 0.8rem;
 		}
 	}
+`;
+
+const $Link = styled(Link)`
+	text-decoration: none;
 `;
 
 export default Region;

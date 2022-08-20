@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
-
+import {Link} from 'react-router-dom'
 
 
 function Countries() {
@@ -9,7 +9,7 @@ function Countries() {
   const getAllCountries = async () => {
     const api = await fetch("https://restcountries.com/v3.1/all");
     const data = await api.json()
-
+		console.log(data)
     setCountries(data)
   }
 
@@ -22,14 +22,16 @@ function Countries() {
     <Grid>
       {countries.map(country => {
         return (
-					<Card>
-						<img src={country.flags.png} alt="" />
-						<div className="">
-							<h1>{country.name.common}</h1>
-							<p>Population: {country.population}</p>
-							<p>Region: {country.region}</p>
-							<p>Capital: {country.capital}</p>
-						</div>
+					<Card key={country.name.common}>
+						<$Link to={'country/' + country.name.common}>
+							<img src={country.flags.svg} alt="" />
+							<div className="">
+								<h1>{country.name.common}</h1>
+								<p>Population: {country.population}</p>
+								<p>Region: {country.region}</p>
+								<p>Capital: {country.capital}</p>
+							</div>
+						</$Link>
 					</Card>
 				);
       })}
@@ -39,13 +41,15 @@ function Countries() {
 
 const Grid = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
     gap: 2rem;
     justify-items: center;
+		margin-top: 3rem;
 `
 
 const Card = styled.div`
-	background-color: hsl(207, 26%, 17%);
+	background: hsl(209, 23%, 22%);
+	cursor: pointer;
 
 	img {
 		width: 100%;
@@ -60,14 +64,14 @@ const Card = styled.div`
 		p {
 			color: white;
 		}
-		h1 {
-			margin-bottom: 1.2rem;
-			font-size: 24px;
-		}
 		p {
 			margin-bottom: 0.8rem;
 		}
 	}
+`;
+
+const $Link = styled(Link)`
+	text-decoration: none;
 `;
 
 export default Countries

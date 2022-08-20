@@ -3,37 +3,42 @@ import styled from 'styled-components';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Form from '../components/Form';
 import SelectForm from '../components/SelectForm';
+import {Link} from 'react-router-dom'
 
 
 
 function Header() {
   return (
-		<>
+		<HeaderContainer>
 			<HeaderBar className="">
-				<h1>Where in the world?</h1>
+				<$Link to={'/'}>Where in the world?</$Link>
 				<DarkModeIcon />
 			</HeaderBar>
-			<SearchField>
-				<Form />
-				<SelectForm />
-			</SearchField>
-		</>
+			
+		</HeaderContainer>
 	);
 }
+
+const HeaderContainer = styled.div`
+  padding: 0;
+`
+
 
 const HeaderBar = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 20px 0;
-	background-color: black;
+	padding: 25px 6%;
+	background-color: #000;
 	color: white;
+	background: hsl(209, 23%, 22%);
 `;
 
-const SearchField = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+
+const $Link = styled(Link)`
+	color: white;
+	text-decoration: none;
+	font-size: 1.5rem;
 `;
 
 
