@@ -23,7 +23,7 @@ function Countries() {
       {countries.map(country => {
         return (
 					<Card key={country.name.common}>
-						<$Link to={'country/' + country.name.common}>
+						<$Link to={'/country/' + country.name.common}>
 							<img src={country.flags.svg} alt="" />
 							<div className="">
 								<h1>{country.name.common}</h1>

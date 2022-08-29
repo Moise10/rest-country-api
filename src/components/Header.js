@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import Form from '../components/Form';
-import SelectForm from '../components/SelectForm';
 import {Link} from 'react-router-dom'
 
 

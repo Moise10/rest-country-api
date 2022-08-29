@@ -23,7 +23,7 @@ function Region() {
       {continents.map(country => {
         return (
 					<Card>
-						<$Link to={'country/' + country.name.common}>
+						<$Link to={'/country/' + country.name.common}>
 							<img src={country.flags.png} alt="" />
 							<div className="">
 								<h1>{country.name.common}</h1>

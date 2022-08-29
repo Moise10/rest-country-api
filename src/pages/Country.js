@@ -6,31 +6,27 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 
 function Country() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const params = useParams()
-  const [selectedCountry, setSelectedCountry] = useState([])
+  const [country, setCountry] = useState([])
 
   const getSearch = async (name) => {
 		const api = await fetch(`https://restcountries.com/v2/name/${name}`);
 		const data = await api.json();
-		setSelectedCountry(data);
+		setCountry(data);
     console.log(data)
 	}; 
 
   useEffect(() => {
-    getSearch(params.country)
-  }, [])
+		getSearch(params.country);
+	}, [params.search]);
   
   return (
 		<div>
-			<$Link to={'/'}>
-				<KeyboardBackspaceIcon /> 
-				<span>Back</span>
-			</$Link>
-			{selectedCountry.map((item) => {
+			{country.map((item) => {
 				return (
 					<>
-						<Grid className="">
+						<Grid className="" key={item.name}>
 							<div>
 								<img src={item.flags.svg} alt="" />
 							</div>
@@ -56,30 +52,12 @@ function Country() {
 											<strong>Top Level Domain:</strong>{' '}
 											{item.topLevelDomain[0]}
 										</p>
-
-										{item.currencies.map((currency) => {
-											return (
-												<p>
-													<strong>Currencies:</strong> {currency.name}
-												</p>
-											);
-										})}
-
-										{item.languages.map((language) => (
-											<p>
-												<strong>Languagues: {language.name}</strong>
-											</p>
-										))}
+										
 									</div>
 								</Flex>
 
 								<div>
-									{item.borders.map((border) => (
-										<ul>
-											<strong></strong>
-											<li>Border Countries:{border}</li>
-										</ul>
-									))}
+									
 								</div>
 							</div>
 						</Grid>
@@ -96,11 +74,11 @@ const Grid = styled.div`
 	gap: 2rem;
 	justify-items: center;
 	align-items: center;
-	margin-top: 4rem;
+	margin-top: 9rem;
 	margin-bottom: 5rem;
 	h1 {
 		margin-bottom: 2rem;
-    color: white;
+		color: white;
 	}
 
 	p {
@@ -116,17 +94,9 @@ const Grid = styled.div`
 `;
 
 const Flex = styled.div`
-  display: flex;
-	flex-direction: column;
-
-  gap: 4rem;
-`
-
-const $Link = styled(Link)`
-  color: white;
 	display: flex;
-	align-items: center;
-	text-decoration: none;
-`
+	gap: 4rem;
+`;
+
 
 export default Country
