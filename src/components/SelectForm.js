@@ -14,10 +14,11 @@ function SelectForm() {
 	};
   
   return (
-		<>
-			<BoxStyle sx={{ minWidth: 220 }}>
+		<ContainerStyles>
+			<Box sx={{ minWidth: 220 }}>
 				<FormControl fullWidth>
 					<InputLabel id="demo-simple-select-label">
+						Filter by region
 					</InputLabel>
 					<Select
 						labelId="demo-simple-select-label"
@@ -41,22 +42,26 @@ function SelectForm() {
 						</MenuItem>
 					</Select>
 				</FormControl>
-			</BoxStyle>
-		</>
+			</Box>
+		</ContainerStyles>
 	);
 }
 
-const $Link = styled(Link)`
-  color: white;
-	text-decoration: none
-`
-
-const BoxStyle = styled(Box)`
-  .css-6hp17o-MuiList-root-MuiMenu-list{
-		color: white;
-		background-color: black;
+const ContainerStyles = styled.div`
+  .css-6hp17o-MuiList-root-MuiMenu-list {
+		background-color: red;
 	}
 `;
+
+
+
+
+const $Link = styled(Link)`
+  color: #000;
+	text-decoration: none;
+`
+
+
 
 
 export default SelectForm

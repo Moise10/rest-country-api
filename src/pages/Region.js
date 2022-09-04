@@ -22,14 +22,23 @@ function Region() {
     <Grid>
       {continents.map(country => {
         return (
-					<Card>
+					<Card key={country.name.common}>
 						<$Link to={'/country/' + country.name.common}>
-							<img src={country.flags.png} alt="" />
-							<div className="">
+							<img src={country.flags.svg} alt="" />
+							<div>
 								<h1>{country.name.common}</h1>
-								<p>Population: {country.population}</p>
-								<p>Region: {country.region}</p>
-								<p>Capital: {country.capital}</p>
+								<p>
+									Population:
+									<span> {country.population}</span>
+								</p>
+								<p>
+									Region:
+									<span> {country.region}</span>
+								</p>
+								<p>
+									Capital:
+									<span> {country.capital}</span>
+								</p>
 							</div>
 						</$Link>
 					</Card>
@@ -43,11 +52,11 @@ const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
 	gap: 2rem;
-	justify-items: center;
+	place-content: center;
 `;
 
 const Card = styled.div`
-	background-color: hsl(209, 23%, 22%);
+	background-color: #fff;
 
 	img {
 		width: 100%;
@@ -56,18 +65,22 @@ const Card = styled.div`
 	}
 
 	div {
-		padding: 30px;
+		padding: 15px;
 
 		h1,
 		p {
-			color: white;
-		}
-		h1 {
-			margin-bottom: 1.2rem;
-			font-size: 24px;
+			color: black;
+			font-weight: 600;
+			text-align: left;
 		}
 		p {
 			margin-bottom: 0.8rem;
+			font-size: 1rem;
+
+			span {
+				font-size: 0.8rem;
+				font-weight: 400;
+			}
 		}
 	}
 `;

@@ -21,7 +21,7 @@ function Searched() {
 			{country.map((item) => {
 				return (
 					<>
-						<Grid className="">
+						<Grid className="" key={item.name}>
 							<div>
 								<img src={item.flags.svg} alt="" />
 							</div>
@@ -47,33 +47,10 @@ function Searched() {
 											<strong>Top Level Domain:</strong>{' '}
 											{item.topLevelDomain[0]}
 										</p>
-
-										{item.currencies.map((currency) => {
-											return (
-												<p>
-													<strong>Currencies:</strong> {currency.name}
-												</p>
-											);
-										})}
-
-										{item.languages.map((language) => (
-											<p>
-												<strong>Languagues: {language.name}</strong>
-											</p>
-										))}
 									</div>
 								</Flex>
 
-								<div>
-									<p>
-										{item.borders.map((border) => (
-											<ul>
-												<strong></strong>
-												<li>Border Countries:{border}</li>
-											</ul>
-										))}
-									</p>
-								</div>
+								<div></div>
 							</div>
 						</Grid>
 					</>
@@ -95,12 +72,13 @@ const Grid = styled.div`
 	margin-bottom: 5rem;
 	h1 {
 		margin-bottom: 2rem;
-		color: white;
+		color: black;
+		font-weight: 400;
 	}
 
 	p {
 		margin-bottom: 1rem;
-		color: white;
+		color: black;
 	}
 
 	div {
@@ -114,5 +92,6 @@ const Flex = styled.div`
 	display: flex;
 	gap: 4rem;
 `;
+
 
 export default Searched

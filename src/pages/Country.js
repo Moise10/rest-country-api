@@ -78,12 +78,13 @@ const Grid = styled.div`
 	margin-bottom: 5rem;
 	h1 {
 		margin-bottom: 2rem;
-		color: white;
+		color: black;
+		font-weight: 400;
 	}
 
 	p {
 		margin-bottom: 1rem;
-		color: white;
+		color: black;
 	}
 
 	div {

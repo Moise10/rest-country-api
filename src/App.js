@@ -4,37 +4,54 @@ import Pages from './pages/Pages';
 import styled from 'styled-components'
 import Form from './components/Form'
 import SelectForm from './components/SelectForm';
+import CssBaseline from '@mui/material/CssBaseline';
+
 
 
 
 function App() {
   return (
-		<Container>
+		<>
 			<Header />
-
-			<div className="app">
-				<SearchField>
-					<Form />
-					<SelectForm />
-				</SearchField>
-				<Pages />
-			</div>
-		</Container>
+			<Container>
+				<div className="app">
+					<div className=""></div>
+					<SearchField>
+						<div className="">
+							<Form />
+						</div>
+						<div className="">
+							<SelectForm />
+						</div>
+					</SearchField>
+					<Pages />
+				</div>
+			</Container>
+		</>
 	);
 }
 
 const Container = styled.div`
-
-	.app {
-		padding: 0 6%;
-	}
+  max-width: 1000px;
+	margin: 0 auto;
+	
 `;
 
 const SearchField = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
 	margin: 2rem 0;
+	@media screen and (max-width: 689px) {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		padding: 0 1rem;
+	}
+
+	@media (min-width: 689px) {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
 `;
 
 

@@ -23,6 +23,7 @@ function Form() {
 					type="text"
 					value={input}
 					onChange={(e) => setInput(e.target.value)}
+					placeholder="Search for a country"
 				/>
 			</div>
 		</FormStyle>
@@ -37,14 +38,16 @@ const FormStyle = styled.form`
 
 	input {
 		border: none;
-		background: hsl(209, 23%, 22%);
-		font-size: 1.5rem;
-		color: white;
+		font-size: 1rem;
+		color: black;
 		padding: 1rem 4rem;
 		border: none;
 		outline: none;
 		width: 100%;
 		cursor: pointer;
+		&::placeholder {
+			font-size: 1rem;
+		}
 	}
 
 	svg {
@@ -52,7 +55,8 @@ const FormStyle = styled.form`
 		top: 50%;
 		left: 0;
 		transform: translate(100%, -50%);
-		color: white;
+		color: black;
+		font-size: 1.5rem;
 	}
 `;
 
