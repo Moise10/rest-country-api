@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
-import {useParams} from 'react-router-dom'
+import {useParams, Link} from 'react-router-dom'
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+
 
 
 function Searched() {
@@ -21,6 +23,18 @@ function Searched() {
 			{country.map((item) => {
 				return (
 					<>
+						<Link
+							to="/"
+							style={{
+								textDecoration: 'none',
+								color: 'black',
+								padding: '0 2rem',
+								display: 'flex',
+								alignItems: 'center',
+							}}
+						>
+							<KeyboardBackspaceIcon /> Back
+						</Link>
 						<Grid className="" key={item.name}>
 							<div>
 								<img src={item.flags.svg} alt="" />
@@ -68,8 +82,11 @@ const Grid = styled.div`
 	gap: 2rem;
 	justify-items: center;
 	align-items: center;
-	margin-top: 9rem;
+	margin-top: 4rem;
 	margin-bottom: 5rem;
+	@media screen and (max-width: 689px) {
+		padding: 0 1rem;
+	}
 	h1 {
 		margin-bottom: 2rem;
 		color: black;

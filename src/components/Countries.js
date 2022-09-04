@@ -54,6 +54,9 @@ const Grid = styled.div`
 	gap: 2rem;
 	justify-items: center;
 	margin-top: 3rem;
+	@media screen and (max-width: 689px) {
+		padding: 0 1rem;
+	}
 `;
 
 const Card = styled.div`

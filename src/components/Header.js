@@ -31,7 +31,7 @@ const HeaderBar = styled.div`
 	padding: 25px 0;
 	background-color: white;
 	color: hsl(209, 23%, 22%);
-	max-width: 1000px;
+	max-width: 1100px;
 	margin: 0 auto;
 `;
 

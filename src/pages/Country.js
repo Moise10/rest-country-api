@@ -23,6 +23,18 @@ function Country() {
   
   return (
 		<div>
+			<Link
+				to="/"
+				style={{
+					textDecoration: 'none',
+					color: 'black',
+					padding: '0 2rem',
+					display: 'flex',
+					alignItems: 'center'
+				}}
+			>
+				<KeyboardBackspaceIcon /> Back
+			</Link>
 			{country.map((item) => {
 				return (
 					<>
@@ -52,13 +64,10 @@ function Country() {
 											<strong>Top Level Domain:</strong>{' '}
 											{item.topLevelDomain[0]}
 										</p>
-										
 									</div>
 								</Flex>
 
-								<div>
-									
-								</div>
+								<div></div>
 							</div>
 						</Grid>
 					</>
@@ -74,8 +83,11 @@ const Grid = styled.div`
 	gap: 2rem;
 	justify-items: center;
 	align-items: center;
-	margin-top: 9rem;
+	margin-top: 4rem;
 	margin-bottom: 5rem;
+	@media screen and (max-width: 689px) {
+		padding: 0 1rem;
+	}
 	h1 {
 		margin-bottom: 2rem;
 		color: black;
