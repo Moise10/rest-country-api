@@ -50,18 +50,29 @@ function Region() {
 
 const Grid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 	gap: 2rem;
 	place-content: center;
+	padding: 0 1rem;
+	@media (min-width: 768px) {
+		padding: 0;
+	}
 `;
 
 const Card = styled.div`
 	background-color: #fff;
+	border-radius: 5px;
+	overflow: hidden;
+	cursor: pointer;
+	
+	:hover{
+		transform: scale(1.07);
+	}
 
 	img {
 		width: 100%;
+		height: 55%;
 		object-fit: cover;
-		height: 12rem;
 	}
 
 	div {

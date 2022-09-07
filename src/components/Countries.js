@@ -50,24 +50,29 @@ function Countries() {
 
 const Grid = styled.div`
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 	gap: 2rem;
 	justify-items: center;
 	margin-top: 3rem;
-	@media screen and (max-width: 689px) {
-		padding: 0 1rem;
+	padding: 0 1rem;
+	@media (min-width: 768px) {
+		padding: 0;
 	}
 `;
 
 const Card = styled.div`
 	cursor: pointer;
-	color: black;
+	border-radius: 5px;
+	overflow: hidden;
 	background-color: #fff;
+	:hover {
+		transform: scale(1.07);
+	}
 
 	img {
 		width: 100%;
+		height: 50%;
 		object-fit: cover;
-		height: 12rem;
 	}
 
 	div {
